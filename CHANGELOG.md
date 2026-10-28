@@ -2,7 +2,7 @@
 
 ## 3.0.0
 
-Reescrita completa sobre a 2.0.4-Yago-LojaFix, mantendo comandos, aliases, permissões, mensagens
+Reescrita completa sobre a 2.0.4, mantendo comandos, aliases, permissões, mensagens
 e o formato de `warps.yml`. Detalhes das falhas corrigidas em `docs/AUDITORIA.md`.
 
 ### Novo
