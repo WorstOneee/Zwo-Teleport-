@@ -1,4 +1,4 @@
-# Auditoria do ZwoTeleport 2.0.4-Yago-LojaFix
+# Auditoria do ZwoTeleport 2.0.4
 
 Base analisada: o JAR distribuído (classes compiladas, `plugin.yml`, `config.yml`, `messages.yml`),
 lido instrução por instrução com `javap`. Cada item abaixo indica a classe/método onde o
