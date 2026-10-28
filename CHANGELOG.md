@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.0.0
+## 3.0.0 - 2026-10-28
 
 Full rewrite on top of 2.0.4, keeping commands, aliases, permissions, messages and
 the `warps.yml` format. Details of the fixed bugs in `docs/AUDITORIA.md`.

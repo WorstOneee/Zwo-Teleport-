@@ -187,6 +187,8 @@ Details, events and guarantees in [`docs/API.md`](docs/API.md).
 
 ## Building
 
+Requires JDK 21. Dependencies are downloaded from Maven Central and the PaperMC repository.
+
 ```bash
 ./gradlew build
 ```
