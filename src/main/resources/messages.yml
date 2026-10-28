@@ -1,0 +1,120 @@
+# ZwoTeleport - mensagens
+#
+# Cores com & (ex.: &a, &l) e hexadecimais com &#RRGGBB.
+# Placeholders entre chaves, como {player}, são trocados pelo valor sem interpretar cores.
+# {warp} e {warps} mantêm as cores do nome de exibição da warp.
+# {prefix} usa o valor de "prefix" abaixo.
+#
+# Canal de exibição (padrão: chat):
+#   "[actionbar] texto"
+#   "[title] título | subtítulo"
+# Deixe a mensagem vazia ("") para não enviá-la.
+
+prefix: ""
+
+general:
+  no-permission: "&cVocê não tem permissão para isso."
+  player-only: "&cApenas jogadores podem usar este comando."
+  player-not-found: "&cJogador &f{player}&c não encontrado ou offline."
+  player-ambiguous: "&cMais de um jogador começa com &f{player}&c: &f{matches}&c. Digite mais letras."
+  invalid-usage: "&cUso correto: &f{usage}"
+  reloaded: "&aConfiguração, mensagens e warps recarregadas."
+  reload-failed: "&cO reload foi recusado; a configuração anterior continua ativa. Veja os erros abaixo:"
+  reload-error-line: "&8- &7{error}"
+  signature: "&7Sistema de teleporte &f{version}&7, assinatura &fby zwo&7."
+
+teleport:
+  warmup: "&7Teleporte iniciado. Aguarde &f{seconds}s&7 sem se mover."
+  warmup-countdown: "[actionbar] &7Teleportando em &f{seconds}s&7..."
+  cancelled-move: "&cTeleporte cancelado porque você se moveu."
+  cancelled-damage: "&cTeleporte cancelado porque você tomou dano."
+  cancelled-combat: "&cTeleporte cancelado porque você entrou em combate."
+  cancelled-teleported: "&cTeleporte cancelado porque você foi movido para outro lugar."
+  cancelled-plugin: "&cTeleporte cancelado."
+  anchor-left: "&cTeleporte cancelado: &f{player}&c saiu do servidor."
+  blocked-combat: "&cVocê está em combate. Aguarde &f{seconds}s&c para teleportar."
+  blocked: "&cVocê não pode teleportar agora."
+  cooldown: "&cAguarde &f{seconds}s&c para teleportar novamente."
+  success: "&aTeleporte concluído."
+  failed: "&cNão foi possível completar o teleporte."
+  invalid-destination: "&cDestino inválido."
+  world-unavailable: "&cO destino está em um mundo indisponível no momento."
+  outside-limits: "&cO destino está fora dos limites do mundo."
+  unsafe-destination: "&cO destino não é seguro. Teleporte cancelado."
+  dead: "&cVocê não pode teleportar enquanto está morto."
+
+tp:
+  teleported-self: "&aVocê teleportou até &f{target}&a."
+  teleported-other: "&aVocê teleportou &f{player}&a até &f{target}&a."
+  teleported-coordinates: "&aTeleportado para &f{x}&a, &f{y}&a, &f{z}&a."
+  teleported-other-coordinates: "&aVocê teleportou &f{player}&a para &f{x}&a, &f{y}&a, &f{z}&a."
+  received-admin: "&7Você foi teleportado por &f{sender}&7."
+  invalid-coordinates: "&cCoordenadas inválidas."
+  failed-other: "&cNão foi possível teleportar &f{player}&c: {reason}"
+
+tpa:
+  self-request: "&cVocê não pode enviar pedido para si mesmo."
+  already-pending: "&cVocê já tem um pedido pendente para &f{target}&c."
+  sent: "&aPedido enviado para &f{target}&a. Expira em &f{seconds}s&a."
+  incoming-to-target: "&f{player}&7 quer teleportar até você."
+  incoming-here: "&f{player}&7 quer que você teleporte até ele."
+  accept-button: "&a&l[ACEITAR]"
+  deny-button: "&c&l[NEGAR]"
+  accept-hover: "&7Clique para aceitar o pedido de &f{player}&7."
+  deny-hover: "&7Clique para negar o pedido de &f{player}&7."
+  # Linha extra com os comandos por escrito, útil para quem joga pelo Bedrock e não pode clicar.
+  incoming-hint: "&8Use /tpaccept {player} ou /tpdeny {player}."
+  accepted-target: "&aVocê aceitou o pedido de &f{player}&a."
+  accepted-requester: "&aSeu pedido foi aceito por &f{player}&a."
+  denied-target: "&cVocê negou o pedido de &f{player}&c."
+  denied-requester: "&cSeu pedido foi negado por &f{player}&c."
+  none: "&cVocê não tem pedidos de teleporte pendentes."
+  none-outgoing: "&cVocê não tem pedidos enviados."
+  requester-offline: "&cO jogador que enviou o pedido saiu do servidor."
+  target-offline: "&cO jogador alvo saiu do servidor."
+  left-requester: "&cO pedido de &f{player}&c foi cancelado porque ele saiu do servidor."
+  left-target: "&cSeu pedido para &f{target}&c foi cancelado porque ele saiu do servidor."
+  cancelled-requester: "&cVocê cancelou &f{count}&c pedido(s) pendente(s)."
+  cancelled-target: "&cO pedido de teleporte de &f{player}&c foi cancelado."
+  expired-requester: "&cSeu pedido para &f{target}&c expirou."
+  expired-target: "&cO pedido de &f{player}&c expirou."
+  blocked: "&cNão foi dessa vez, tente amanhã. &7:/"
+  blocked-world: "&cPedidos de teleporte não funcionam neste mundo."
+  blocked-target-world: "&f{target}&c está em um mundo onde pedidos de teleporte não funcionam."
+
+warp:
+  not-found: "&cWarp &f{warp}&c não encontrada."
+  no-access: "&cVocê não tem acesso à warp &f{warp}&c."
+  unavailable: "&cA warp &f{warp}&c está indisponível no momento."
+  teleported: "&aTeleportado para &f{warp}&a."
+  list-empty: "&cNenhuma warp disponível."
+  list: "&7Warps disponíveis: &f{warps}"
+  list-separator: "&7, &f"
+  created: "&aWarp &f{warp}&a criada."
+  updated: "&aWarp &f{warp}&a atualizada."
+  deleted: "&aWarp &f{warp}&a removida."
+  invalid-name: "&cNome de warp inválido. Use apenas letras minúsculas, números, _ ou - (até 32)."
+  command-conflict: "&eAviso: já existe o comando /{warp}. Use &f/warp {warp}&e para essa warp."
+  save-failed: "&cA warp foi alterada, mas não pôde ser gravada no disco. Veja o console."
+  read-only: "&cO arquivo de warps está ilegível; alterações bloqueadas. Veja o console."
+  spawn-deleted: "&eAviso: sem a warp spawn, /spawn e o spawn na entrada ficam indisponíveis."
+
+spawn:
+  teleported: "&aTeleportado para o spawn."
+  teleported-other: "&aVocê teleportou &f{player}&a para o spawn."
+  not-set: "&cO spawn ainda não foi definido. Use /setspawn."
+
+loja:
+  teleported: "&aTeleportado para a loja."
+
+join-spawn:
+  teleported: ""
+  skipped-combat: "&7Você saiu em combate e voltou onde estava."
+
+zwotp:
+  usage: "&cUso: &f/zwotp <reload|info|combaton|combatoff>"
+  combat-on: "&aSistema interno de combate do ZwoTeleport ativado."
+  combat-off: "&aSistema interno de combate do ZwoTeleport desativado. Tags internas limpas; o plugin de combate externo fica responsável."
+  combat-save-failed: "&cA alteração vale até o próximo reload, mas não foi gravada no config.yml: {reason}"
+  info-header: "&8&m------&r &fZwoTeleport {version} &8&m------"
+  info-line: "&7{key}: &f{value}"

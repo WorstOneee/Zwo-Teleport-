@@ -1,0 +1,132 @@
+# ZwoTeleport - configuração principal
+#
+# Recarregue com /zwotp reload. O arquivo é validado antes de ser aplicado: se houver erro,
+# a configuração anterior continua ativa e os problemas são listados no console e para quem
+# executou o comando.
+
+# Versão do formato deste arquivo. Não altere; ela é atualizada pela migração automática.
+config-version: 3
+
+teleport:
+  warmup:
+    enabled: true
+    # Tempo de espera, em segundos, antes de teleportar.
+    seconds: 10
+    cancel-on-move: true
+    cancel-on-damage: true
+    # true = quem tem zwo.bypass.warmup, zwo.admin ou zwo.warp.admin não espera.
+    # false = todos esperam, inclusive administradores.
+    allow-bypass-permission: true
+    # Deslocamento tolerado durante a espera, em blocos. Girar a câmera nunca cancela.
+    # O padrão permite pular no lugar, mas cancela ao andar.
+    max-horizontal-distance: 0.6
+    max-vertical-distance: 1.5
+    # Mostra a contagem regressiva na actionbar.
+    actionbar-countdown: true
+  cooldown:
+    # Intervalo mínimo entre teleportes do mesmo jogador, em segundos.
+    # Warps, /spawn e atalhos: verificado ao usar o comando e registrado somente quando o
+    # teleporte termina com sucesso. Teleporte cancelado ou com falha não consome cooldown.
+    # /tpa e /tpahere: verificado e registrado ao enviar o pedido (evita spam de pedidos).
+    seconds: 10
+    # zwo.admin e zwo.warp.admin sempre ignoram o cooldown.
+    # true = zwo.bypass.cooldown também ignora.
+    allow-bypass-permission: true
+  combat:
+    # Pode ser ligado/desligado em jogo com /zwotp combaton e /zwotp combatoff.
+    # zwo.admin, zwo.tp.admin, zwo.warp.admin e zwo.bypass.combat não são marcados.
+    enabled: true
+    tag-seconds: 15
+    block-while-tagged: true
+    cancel-warmup-on-combat: true
+    tag-attacker: true
+    tag-victim: true
+
+tpa:
+  expire-seconds: 60
+  allow-self-request: false
+  # true = um novo /tpa para o mesmo jogador substitui o pedido anterior.
+  replace-existing-request: true
+  # Quem tiver qualquer uma destas permissões não consegue enviar /tpa nem /tpahere.
+  blocked-permissions:
+    - serpens.yoff.active
+  # Mundos onde /tpa e /tpahere não funcionam (nem para sair, nem para chegar).
+  # zwo.admin e zwo.tpa.bypass.restrictions ignoram estas restrições.
+  blocked-worlds: []
+
+warps:
+  use-warmup: true
+  require-per-warp-permission: false
+  per-warp-permission-format: "zwo.warp.{warp}"
+
+shortcuts:
+  enabled: true
+  # true = qualquer warp pode ser usada como comando (/minas -> warp minas), desde que
+  # nenhum plugin tenha registrado um comando com esse nome.
+  auto-warp-commands: true
+  # Comandos extras -> warp. /spawn e /loja já são registrados pelo plugin.yml.
+  commands:
+    spawn: "spawn"
+    loja: "loja"
+
+join-spawn:
+  # DISABLED   = nunca envia ao spawn ao entrar.
+  # FIRST_JOIN = somente na primeira entrada do jogador neste servidor.
+  # EVERY_JOIN = em toda entrada neste servidor. Isso inclui vir do Hub, voltar de outra
+  #              instância e reconectar: o servidor não sabe de onde o jogador veio.
+  # Ao ativar, remova o Skript de spawn para evitar teleporte duplicado.
+  mode: EVERY_JOIN
+  # Warp usada como destino (definida com /setspawn).
+  warp: spawn
+  # Ticks de espera após a entrada antes de teleportar (20 ticks = 1 segundo).
+  delay-ticks: 1
+  # true = quem tiver zwo.joinspawn.bypass não é enviado ao spawn.
+  # A permissão não é dada a ninguém por padrão, nem a OP.
+  bypass-permission-enabled: true
+  # true = quem saiu marcado em combate volta onde estava, em vez de ir ao spawn.
+  skip-if-quit-in-combat: true
+  # true = envia a mensagem join-spawn.teleported ao jogador.
+  notify-player: false
+
+safety:
+  # Política de destino por tipo de teleporte:
+  # NONE   = posição exata, sem verificar blocos.
+  # VERIFY = recusa o teleporte se o destino não for seguro.
+  # ADJUST = procura a posição segura mais próxima; recusa se não encontrar.
+  tpa: ADJUST
+  warp: NONE
+  spawn: NONE
+  join-spawn: NONE
+  admin: NONE
+  plugin: VERIFY
+  # Considera água um destino aceitável.
+  allow-water: true
+  # Limites da busca do modo ADJUST, dentro do chunk do destino.
+  search-radius: 2
+  search-height: 6
+  # Recusa destinos fora da borda do mundo (exceto /tp administrativo).
+  respect-world-border: true
+
+commands:
+  # Aliases que o ZwoTeleport assume mesmo que outro plugin (ex.: Essentials) os tenha
+  # registrado. Cada troca é registrada no console. Os comandos com namespace
+  # (/zwoteleport:tpa) continuam sempre disponíveis.
+  takeover:
+    - tpa
+    - tpahere
+    - tpaccept
+    - tpaceitar
+    - tpdeny
+    - tpnegar
+    - tpacancel
+    - tpcancelar
+  # Esconde /zwoteleport:... das sugestões de quem não tem zwo.admin.
+  # Os comandos continuam funcionando para diagnóstico.
+  hide-namespaced-from-players: true
+
+storage:
+  # YAML é o único tipo disponível nesta versão.
+  type: YAML
+
+startup:
+  show-signature: true

@@ -1,0 +1,34 @@
+warps:
+  spawn:
+    world: world
+    x: 0.5
+    y: 64.0
+    z: 0.5
+    yaw: -90.0
+    pitch: 12.5
+    display-name: '&aSpawn'
+    permission: ''
+  loja:
+    world: world
+    x: 120.5
+    y: 70.0
+    z: -45.5
+    yaw: 180.0
+    pitch: 0.0
+    display-name: '&eLoja'
+    permission: ''
+  vip:
+    world: world_vip
+    x: 10
+    y: 80
+    z: 10
+    yaw: 0
+    pitch: 0
+    display-name: VIP
+    permission: serpens.vip
+    criado-por: Staff
+  quebrada:
+    world: world
+    x: abc
+    y: 64.0
+    z: 0.0

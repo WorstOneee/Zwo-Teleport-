@@ -1,0 +1,49 @@
+# ZwoTeleport - assinatura by zwo
+
+teleport:
+  warmup:
+    enabled: true
+    seconds: 10
+    cancel-on-move: true
+    cancel-on-damage: true
+    # true = OP/admin ou quem tiver zwo.bypass.warmup ignora o tempo de espera.
+    allow-bypass-permission: true
+  cooldown:
+    seconds: 10
+    # OP, zwo.admin e zwo.warp.admin sempre ignoram cooldown.
+    # true = tambem permite bypass com zwo.bypass.cooldown.
+    allow-bypass-permission: true
+  combat:
+    # Pode ser ligado/desligado em jogo com /zwotp combaton e /zwotp combatoff.
+    # Staff, administradores e quem tiver zwo.bypass.combat nao ficam bloqueados pelo combat interno.
+    enabled: true
+    tag-seconds: 15
+    block-while-tagged: true
+    cancel-warmup-on-combat: true
+    tag-attacker: true
+    tag-victim: true
+
+tpa:
+  expire-seconds: 60
+  allow-self-request: false
+  # /tpahere ignora cooldown para OP, zwo.admin, zwo.tp.admin, zwo.warp.admin,
+  # zwo.bypass.cooldown e zwo.tpahere.bypass.cooldown.
+  # true = /tpa jogador sempre envia/renova o pedido, sem etapa de confirmacao.
+  replace-existing-request: true
+
+warps:
+  use-warmup: true
+  require-per-warp-permission: false
+  per-warp-permission-format: "zwo.warp.{warp}"
+
+shortcuts:
+  # Atalhos como /spawn e /loja.
+  # O plugin tambem registra /spawn e /loja no plugin.yml, mas esta lista permite
+  # adicionar comandos extras sem mexer no codigo, por exemplo: minas: "minas".
+  enabled: true
+  commands:
+    spawn: "spawn"
+    loja: "loja"
+
+startup:
+  show-signature: true

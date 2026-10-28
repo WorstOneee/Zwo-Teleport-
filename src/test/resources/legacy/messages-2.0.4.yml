@@ -1,0 +1,72 @@
+prefix: ""
+
+general:
+  no-permission: "&cVoce nao tem permissao para isso."
+  player-only: "&cApenas jogadores podem usar este comando."
+  player-not-found: "&cJogador &f{player}&c nao encontrado ou offline."
+  player-ambiguous: "&cExiste mais de um jogador parecido com &f{player}&c. Use mais letras. Possiveis: &f{matches}"
+  invalid-usage: "&cUso correto: &f{usage}"
+  reloaded: "&aConfiguracoes, mensagens e warps recarregadas."
+  signature: "&7Sistema de teleporte &f{version}&7, assinatura &fby zwo&7."
+
+teleport:
+  warmup: "&7Teleporte iniciado. Aguarde &f{seconds}s&7 sem se mover."
+  cancelled-move: "&cTeleporte cancelado porque voce se moveu."
+  cancelled-damage: "&cTeleporte cancelado porque voce tomou dano."
+  cancelled-combat: "&cTeleporte cancelado porque voce entrou em combate."
+  blocked-combat: "&cVoce esta em combate. Aguarde &f{seconds}s&c para teleportar."
+  failed: "&cNao foi possivel completar o teleporte."
+  success: "&aTeleporte concluido."
+  cooldown: "&cAguarde &f{seconds}s&c para teleportar novamente."
+  invalid-destination: "&cDestino invalido ou mundo indisponivel."
+
+tp:
+  teleported-self: "&aVoce teleportou ate &f{target}&a."
+  teleported-other: "&aVoce teleportou &f{player}&a ate &f{target}&a."
+  teleported-coordinates: "&aTeleportado para &f{x}&a, &f{y}&a, &f{z}&a."
+  teleported-other-coordinates: "&aVoce teleportou &f{player}&a para &f{x}&a, &f{y}&a, &f{z}&a."
+  received-admin: "&7Voce foi teleportado por &f{sender}&7."
+  invalid-coordinates: "&cCoordenadas invalidas."
+
+tpa:
+  self-request: "&cVoce nao pode enviar pedido para si mesmo."
+  already-pending: "&cVoce ja tem um pedido pendente para &f{target}&c."
+  sent: "&aPedido enviado para &f{target}&a. Expira em &f{seconds}s&a."
+  incoming-to-target: "&f{player}&7 quer teleportar ate voce."
+  incoming-here: "&f{player}&7 quer que voce teleporte ate ele."
+  accept-button: "&a&l[ACEITAR]"
+  deny-button: "&c&l[NEGAR]"
+  accept-hover: "&7Clique para aceitar o pedido de &f{player}&7."
+  deny-hover: "&7Clique para negar o pedido de &f{player}&7."
+  accepted-target: "&aVoce aceitou o pedido de &f{player}&a."
+  accepted-requester: "&aSeu pedido foi aceito por &f{player}&a."
+  denied-target: "&cVoce negou o pedido de &f{player}&c."
+  denied-requester: "&cSeu pedido foi negado por &f{player}&c."
+  none: "&cVoce nao tem pedidos de teleporte pendentes."
+  requester-offline: "&cO jogador que enviou o pedido saiu do servidor."
+  target-offline: "&cO jogador alvo saiu do servidor."
+  cancelled-requester: "&cVoce cancelou &f{count}&c pedido(s) pendente(s)."
+  cancelled-target: "&cO pedido de teleporte de &f{player}&c foi cancelado."
+  expired-requester: "&cSeu pedido para &f{target}&c expirou."
+  expired-target: "&cO pedido de &f{player}&c expirou."
+
+warp:
+  not-found: "&cWarp &f{warp}&c nao encontrada."
+  no-access: "&cVoce nao tem acesso a warp &f{warp}&c."
+  teleported: "&aTeleportado para &f{warp}&a."
+  list-empty: "&cNenhuma warp disponivel."
+  list: "&7Warps disponiveis: &f{warps}"
+  created: "&aWarp &f{warp}&a criada/atualizada."
+  deleted: "&aWarp &f{warp}&a removida."
+  invalid-name: "&cNome de warp invalido. Use apenas letras, numeros, _ ou -."
+
+spawn:
+  teleported: "&aTeleportado para o spawn"
+  teleported-other: "&aVoce teleportou &f{player}&a para o spawn."
+
+loja:
+  teleported: "&aTeleportado para a loja"
+
+zwotp:
+  combat-on: "&aSistema interno de combate do ZwoTeleport ativado. O plugin voltara a tagar e bloquear teleporte em combate."
+  combat-off: "&aSistema interno de combate do ZwoTeleport desativado. Tags internas limpas; o CombatLog externo fica responsavel por isso."

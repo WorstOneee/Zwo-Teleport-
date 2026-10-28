@@ -1,0 +1,125 @@
+name: ZwoTeleport
+version: "${version}"
+main: br.com.zwo.zwoteleport.ZwoTeleportPlugin
+api-version: "1.21"
+author: zwo
+description: Teleportes, TPA, warps e spawn na entrada para Paper.
+folia-supported: false
+# Carregar antes destes plugins faz o ZwoTeleport ficar com os nomes simples (/tp, /warp, /spawn...).
+# Os comandos dos outros continuam acessíveis pelo namespace deles (ex.: /essentials:warp).
+loadbefore: [Essentials, EssentialsX, CMI, AdvancedTeleport, HuskHomes, UltimateTeleport, PlayerWarps]
+softdepend: [Multiverse-Core]
+
+commands:
+  tp:
+    description: Teleporte administrativo.
+    usage: /tp <jogador|x> [alvo|y] [z] [yaw] [pitch]
+    permission: zwo.tp.admin
+  tpa:
+    description: Pede para teleportar até outro jogador.
+    usage: /tpa <jogador>
+    permission: zwo.tpa
+  tpahere:
+    description: Pede que outro jogador venha até você.
+    usage: /tpahere <jogador>
+    permission: zwo.tpahere
+  tpaccept:
+    description: Aceita um pedido de teleporte.
+    usage: /tpaccept [jogador]
+    aliases: [tpaceitar]
+    permission: zwo.tpa.respond
+  tpdeny:
+    description: Nega um pedido de teleporte.
+    usage: /tpdeny [jogador]
+    aliases: [tpnegar]
+    permission: zwo.tpa.respond
+  tpacancel:
+    description: Cancela seus pedidos de teleporte pendentes.
+    usage: /tpacancel
+    aliases: [tpcancelar]
+    permission: zwo.tpa
+  warp:
+    description: Teleporta para uma warp ou lista as warps.
+    usage: /warp [nome]
+    permission: zwo.warp.use
+  warps:
+    description: Lista as warps disponíveis.
+    usage: /warps
+    permission: zwo.warp.use
+  setwarp:
+    description: Cria ou atualiza uma warp na sua posição.
+    usage: /setwarp <nome> [nome bonito]
+    permission: zwo.warp.admin
+  delwarp:
+    description: Remove uma warp.
+    usage: /delwarp <nome>
+    permission: zwo.warp.admin
+  spawn:
+    description: Vai ao spawn ou envia outro jogador ao spawn.
+    usage: /spawn [jogador]
+    permission: zwo.warp.use
+  setspawn:
+    description: Define o spawn na sua posição, incluindo a direção.
+    usage: /setspawn
+    permission: zwo.warp.admin
+  loja:
+    description: Teleporta para a loja.
+    usage: /loja
+    permission: zwo.warp.use
+  zwotp:
+    description: Administração do ZwoTeleport.
+    usage: /zwotp <reload|info|combaton|combatoff>
+    permission: zwo.zwotp.admin
+
+permissions:
+  zwo.admin:
+    description: Administração completa do ZwoTeleport. Ignora cooldown, combate e restrições de /tpa.
+    default: op
+    children:
+      zwo.tp.admin: true
+      zwo.warp.admin: true
+      zwo.zwotp.admin: true
+      zwo.spawn.others: true
+      zwo.tpa.bypass.restrictions: true
+  zwo.tp.admin:
+    description: Usar /tp. Também ignora o combate interno e o cooldown de /tpahere.
+    default: op
+  zwo.tpa:
+    description: Enviar /tpa e usar /tpacancel.
+    default: true
+  zwo.tpahere:
+    description: Enviar /tpahere.
+    default: true
+  zwo.tpa.respond:
+    description: Aceitar ou negar pedidos.
+    default: true
+  zwo.tpa.bypass.restrictions:
+    description: Ignorar tpa.blocked-permissions e tpa.blocked-worlds.
+    default: op
+  zwo.warp.use:
+    description: Usar warps públicas, /spawn e /loja.
+    default: true
+  zwo.warp.admin:
+    description: Criar e remover warps e definir o spawn. Acessa todas as warps, ignora cooldown e combate.
+    default: op
+  zwo.spawn.others:
+    description: Usar /spawn <jogador>.
+    default: op
+  zwo.bypass.cooldown:
+    description: Ignorar cooldown (se teleport.cooldown.allow-bypass-permission for true).
+    default: op
+  zwo.tpahere.bypass.cooldown:
+    description: Ignorar cooldown apenas ao enviar /tpahere.
+    default: op
+  zwo.bypass.warmup:
+    description: Ignorar warmup (se teleport.warmup.allow-bypass-permission for true).
+    default: op
+  zwo.bypass.combat:
+    description: Não ser marcado nem bloqueado pelo combate interno.
+    default: op
+  zwo.joinspawn.bypass:
+    description: Não ser enviado ao spawn ao entrar (se join-spawn.bypass-permission-enabled for true). Ninguém tem por padrão, nem OP.
+    default: false
+  zwo.zwotp.admin:
+    description: Usar /zwotp reload, info, combaton e combatoff.
+    default: op
